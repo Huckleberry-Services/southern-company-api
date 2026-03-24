@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"outDir": "dist",
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		"declaration": true,
 
 		"module": "commonjs",

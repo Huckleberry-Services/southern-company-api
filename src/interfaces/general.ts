@@ -16,6 +16,11 @@ export interface UsageData{
 	[key:number]: number | null;
 }
 
+export interface ServicePoint{
+	meterNumber: string;
+	servicePointNumber: string;
+}
+
 /* Method Response Types */
 export interface Account{
 	name: string;
