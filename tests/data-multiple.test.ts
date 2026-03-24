@@ -3,10 +3,20 @@ import {SouthernCompanyAPI, SouthernCompanyConfig} from '../src/main';
 import {subDays} from 'date-fns';
 
 /* Config */
+function parseAccountsEnv(): string[] {
+	const raw = process.env.accounts;
+	if(!raw) throw new Error('Missing required env var: accounts');
+	try {
+		return JSON.parse(raw) as string[];
+	} catch {
+		throw new Error('Invalid JSON in env var: accounts');
+	}
+}
+
 const config = {
 	username: process.env.username as string,
 	password: process.env.password as string,
-	accounts: JSON.parse(process.env.accounts as string) as string[]
+	accounts: parseAccountsEnv()
 };
 
 /* Connecting to API */

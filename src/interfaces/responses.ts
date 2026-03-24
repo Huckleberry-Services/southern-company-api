@@ -80,3 +80,40 @@ export interface DailyDataResponse extends APIResponse{
 export interface GetAllBillsResponse extends APIResponse{
 	Data: API.AllBills[];
 }
+
+export interface HourlyDataResponse extends APIResponse{
+	Data: {
+		contractriderDesc: string | null;
+		Data: string;
+		HighTempIndex: number;
+		LowTempIndex: number;
+		TemperatureIndex: number;
+		NotificationIndex: number;
+		AboveAlertIndex: number;
+		DailyAlertIndex: number;
+		WeekendIndex: number;
+		ReminderIndex: number;
+		ProjectedBillAmountHigh: number | null;
+		ProjectedBillAmountLow: number | null;
+		AverageDailyCost: number | null;
+		Days: number;
+		DollarsToDate: number | null;
+		TotalkWhUsed: number;
+		HasData: boolean;
+		HasEstimatedBill: boolean;
+		IsPartialMonth: boolean;
+		RemainingDays: number;
+		DaysToDate: number;
+	}
+}
+
+export interface ServicePointResponse extends APIResponse{
+	Data: {
+		estimatedBillIndicator: boolean;
+		isOnlyEligibleForMonthly: boolean;
+		meterAndServicePoints: {
+			meterNumber: string;
+			servicePointNumber: string;
+		}[];
+	}
+}
